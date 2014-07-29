@@ -58,11 +58,12 @@ Example usage of the formatter
 ```python
 
     import logging
+    import RFC5424SysLog
 
     logger = logging.getLogger('rfc5424_example')
     handler = logging.handlers.SysLogHandler(address=<Address of SysLogServer>)
     format = '%(isotime)s %(hostname)s %(name)s %(process)d - - %(message)s'
-    formatter = RFC5424Syslog(format)
+    formatter = RFC5424Syslog.RFC5424Formatter(format)
 
     handler.setFormatter(formatter)
 
