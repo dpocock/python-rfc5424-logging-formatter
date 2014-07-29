@@ -60,6 +60,9 @@ Example usage of the formatter
     import logging
     import RFC5424SysLog
 
+    # this is a special hack needed for issue #15462 in Python version < 3.3.0:
+    logging.handlers.codec = None
+
     logger = logging.getLogger('rfc5424_example')
     handler = logging.handlers.SysLogHandler(address=<Address of SysLogServer>)
     # this is how to specify ident (Syslog tag name), although the formatter
