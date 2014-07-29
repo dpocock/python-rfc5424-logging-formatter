@@ -70,4 +70,8 @@ class RFC5424Formatter(logging.formatter):
 
         record.__dict__['isotime'] = isotime
 
-        return super(RFC5424Formatter, self).format(record)
+        result = super(RFC5424Formatter, self).format(record)
+        # ensure the '1' is present to indicate RFC 5424 instead of RFC 3164
+        if result[0:2] != '1 ':
+            result = '1 %s' % result
+        return result
